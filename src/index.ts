@@ -36,6 +36,8 @@ const getNextNumber = (input: string, intervalId: NodeJS.Timeout) => {
   const valueToSet = numberCollections[input];
   numberCollections[input] = valueToSet ? valueToSet + 1 : 1;
 
+  // { "5": 2, "3": 6, "88": 5, "100": 1 }
+
   // numberCollections.forEach((value, key) => {
   //   numberCollections = [...numberCollections, `${key}:${value}`];
   // });
@@ -53,9 +55,9 @@ reader.question("Please input the number of time in seconds between emitting num
       return;
     }
 
-    const arr1 = Object.keys(numberCollections).map(key => {
-      return `${key}:${numberCollections[key]}`;
-    });
+    // const arr1 = Object.keys(numberCollections).map(key => {
+    //   return `${key}:${numberCollections[key]}`;
+    // });
 
     // let arr1: string[] = [];
 
@@ -63,7 +65,13 @@ reader.question("Please input the number of time in seconds between emitting num
     //   arr1 = [...arr1, `${key}:${value}`];
     // });
 
-    console.log(arr1.join(", "));
+    const text = Object                  // {"5": 2, "3": 6, "88": 5, "100": 1}
+      .entries(numberCollections)        // [["5": 2], ["3": 6], ["88": 5], ["100": 1]]
+      .sort((a, b) => b[1] - a[1])       // [["3": 6], ["88": 5], ["5": 2], ["100": 1]]
+      .map(arr => `${arr[0]}:${arr[1]}`) // ["3:6", "88:5", "5:2", "100:1"]
+      .join(", ");
+
+    console.log(text);
   }, secondsToEmitNumbers * 1000);
 
   reader.question("Please enter the first number\n", (firstInput: string) => {
