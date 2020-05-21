@@ -1,0 +1,11 @@
+{
+  "name": "timer-console-code-challenge",
+  "version": "1.0.0",
+  "description": "A timer console application as part of coding challenge built with Node and Typescript.",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jeff Wong",
+  "license": "ISC"
+}
