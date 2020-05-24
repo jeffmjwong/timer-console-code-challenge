@@ -9,7 +9,7 @@ export default class Main {
   private numberCollections: NumberCollections;
   private startTime: number;
   private remainingTime: number;
-  private fibonacciSeries: bigint[] = [];
+  private fibonacciSeries: bigint[];
 
   constructor(numberCollections: NumberCollections) {
     this.numberCollections = numberCollections;
@@ -18,20 +18,24 @@ export default class Main {
       input: process.stdin,
       output: process.stdout
     });
-
+    
     this.reader.on("close", function() {
       process.exit(0);
     });
+
+    this.generateFibonacciSeries();
   }
 
   generateFibonacciSeries(): void {
-    this.fibonacciSeries = [0n, 1n];
+    this.fibonacciSeries = [1n, 1n];
 
-    for (let i = 2; i <= 1000; i++) {
+    for (let i = 2; i < 1000; i++) {
       this.fibonacciSeries = [...this.fibonacciSeries, this.fibonacciSeries[i - 2] + this.fibonacciSeries[i - 1]];
-
-      console.log(this.fibonacciSeries[i]);
     }
+  }
+
+  getFibonacciSeries(): bigint[] {
+    return this.fibonacciSeries;
   }
 
   quit(): void {
@@ -53,14 +57,16 @@ export default class Main {
     return isNaN(input);
   }
 
-  checkFibonacci(input: string): void {
+  isFibonacciNumber(input: string): boolean {
     if (input.includes(".") || Number(input) < 0) { // Do not consider negative numbers and numbers with decimal points
-      return;
+      return false;
     }
 
-    const isFibonacci = this.fibonacciSeries.includes(BigInt(input));
+    return this.fibonacciSeries.includes(BigInt(input));
+  }
 
-    if (isFibonacci) {
+  checkFibonacci(input: string): void {
+    if (this.isFibonacciNumber(input)) {
       console.log(ConsoleMessages.FIBONACCI_MESSAGE);
     }
   }
@@ -106,7 +112,7 @@ export default class Main {
         return this.handleTimerHalted();
       }
 
-      const inputNumber = parseFloat(input);
+      const inputNumber: number = parseFloat(input);
 
       if (this.isInvalidNumber(inputNumber)) {
         console.log(ConsoleMessages.INVALID_NEXT_NUMBER_INPUT);
@@ -123,7 +129,7 @@ export default class Main {
     this.reader.question(ConsoleMessages.ENTER_FIRST_NUMBER, (input: string) => {
       this.checkQuit(input);
 
-      const inputNumber = parseFloat(input);
+      const inputNumber: number = parseFloat(input);
 
       if (this.isInvalidNumber(inputNumber)) {
         console.log(ConsoleMessages.INVALID_FIRST_NUMBER_INPUT);
@@ -138,20 +144,18 @@ export default class Main {
   }
 
   run(): void {
-    this.generateFibonacciSeries();
-
     this.reader.question(ConsoleMessages.ENTER_EMIT_SECONDS, (input: string) => {
       this.checkQuit(input);
 
-      const inputNumber = parseFloat(input);
+      const inputNumber: number = parseFloat(input);
 
       if (inputNumber <= 0 || this.isInvalidNumber(inputNumber)) {
         console.log(ConsoleMessages.INVALID_EMIT_SECONDS_INPUT);
         return this.run();
       }
 
-      this.checkFibonacci(input);
       this.emitTimeInMilliseconds = inputNumber * 1000;
+      this.checkFibonacci(input);
       this.getFirstNumber();
     });
   }
