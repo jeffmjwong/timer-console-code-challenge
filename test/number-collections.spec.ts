@@ -22,11 +22,11 @@ describe("NumberCollections class", () => {
   });
 
   describe("toString method", () => {
-    it("displays correct string format of numberCollections class", () => {
+    it("displays correct string format of NumberCollections class", () => {
       expect(numberCollections.toString()).toEqual("2:2, 5:1");
     });
 
-    it("displays correct frequency descending order of list of numbers in numberCollections", () => {
+    it("displays correct frequency descending order of list of numbers in NumberCollections", () => {
       numberCollections.set(5);
       numberCollections.set(5);
       expect(numberCollections.toString()).toEqual("5:3, 2:2");
