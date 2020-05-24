@@ -1,8 +1,12 @@
 export default class NumberCollections {
-  private collection: { [key: string]: number };
+  private collection: { [key: number]: number };
 
   constructor() {
     this.collection = {};
+  }
+
+  getCollection(): { [key: number]: number } {
+    return this.collection;
   }
 
   set(key: number): void {
