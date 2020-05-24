@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import Main from "./main";
 import NumberCollections from './number-collections';
 
