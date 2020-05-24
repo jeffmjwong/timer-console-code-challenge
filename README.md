@@ -14,4 +14,4 @@ This console application is built with Node and Typescript. It can also be bundl
 4. Run `npm install` to install packages.
 5. Run `npm start` to start the interactive console program. Follow the instructions or enter 'quit' at anytime to terminate the program.
 6. Run `npm test` to run test suites.
-7. Run `npm build` to bundle all source files to a single executable JS file. This file can be assessed at directory `/dist/bundle.js`.
+7. Run `npm build` to bundle all source files to a single executable JS file. This file can be assessed at directory `/dist/bundle.js`. This will be useful when hosting the file through a CDN as the files are compressed to a minimum size.
