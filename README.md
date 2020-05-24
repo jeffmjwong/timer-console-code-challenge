@@ -9,7 +9,7 @@ This console application is built with Node and Typescript. It can also be bundl
 
 ## Instructions
 1. Navigate to a desired directory, run `git clone` and use either https or ssh to clone the repo.
-2. Run `cd timer-console-code-challenge` to navigate into the cloned repo.
+2. `cd timer-console-code-challenge` to navigate into the cloned repo.
 3. Minimum requirement is to have Node version 12.16.0 or above. If `nvm` is used to manage Node versions, run `nvm use` and it will use the Node version specified in `.nvmrc` file. To install the specific node version, run `nvm install 12.16.0`.
 4. Run `npm install` to install packages.
 5. Run `npm start` to start the interactive console program. Follow the instructions or enter 'quit' at anytime to terminate the program.
