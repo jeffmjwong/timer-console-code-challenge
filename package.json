@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "start": "ts-node src/index",
-    "test": "jest"
+    "test": "jest --no-cache --forceExit"
   },
   "author": "Jeff Wong",
   "license": "ISC",
