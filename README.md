@@ -8,7 +8,7 @@ This console application is built with Node and Typescript. It can also be bundl
 6. If the user enters 'quit', the application should output the numbers and their frequency, a farewell message and finally terminate.
 
 ## Instructions
-1. Navigate to desired directory, run `git clone https://github.com/jeffmjwong/timer-console-code-challenge.git` to clone the repo.
+1. Navigate to a desired directory, run `git clone` and use either https or ssh to clone the repo.
 2. Run `cd timer-console-code-challenge` to navigate into the cloned repo.
 3. Minimum requirement is to have Node version 12.16.0 or above. If `nvm` is used to manage Node versions, run `nvm use` and it will use the Node version specified in `.nvmrc` file. To install the specific node version, run `nvm install 12.16.0`.
 4. Run `npm install` to install packages.
