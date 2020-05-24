@@ -1,12 +1,7 @@
 export enum Keywords {
   QUIT = "quit",
   HALT = "halt",
-  RESUME = "resume",
-  INVALID = "invalid"
-}
-
-export enum InputType {
-  INVALID = "invalid"
+  RESUME = "resume"
 }
 
 export enum ConsoleMessages {
