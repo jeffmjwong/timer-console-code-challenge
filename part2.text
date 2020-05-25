@@ -29,5 +29,35 @@ out of them. These packages can then be included in those UI repos as neeeded.
 You now need to make your application "production ready", and deploy it so that it can be used by customers.
 Please describe the steps you'd need to take for this to happen.
 
+
+- For this application, I have included Webpack and the command to bundle all source files into a single executable
+file which excludes test files and Typescript compiler. Once this is done, the file can then be hosted on a CDN to be
+downloaded by customers. The file can also be potentially distributed via other means such as email or USB flash drive.
+
+If this is a web application, we will use the same approach - utilising Webpack to bundle source files into a HTML, CSS
+and JS file. One of the easiest ways to host these files is by using Amazon S3 bucket, which has an option to host
+static web application. For more advanced scalable solution, we could utilise Docker to containerize the application
+and use a service such as Amazon ECS to run and manage these containers.
+
+
 3.
 What did you think about this coding test - is there anything you'd suggest in order to improve it?
+
+
+- This coding test is actually quite challenging, especially dealing with the asynchronouse nature of Javascript, with
+timer intervals and readline interface being the core feature of the application. Just a couple of comments regarding
+the coding test:
+
+1. The test didn't specify what would happen if user enters an input that is undesirable, for example entering letters
+when the program asks for a number. I addressed this by adding validations regarding user inputs, and handle incorrect
+inputs gracefully instead of failing immediately. The program achieves this by repeating the question and giving out
+hints of what inputs the program will accept.
+
+2. The Fibonacci numbers feature is one of the most challenging parts of the test, because the maximum safe normal integer
+that can be used is 9007199254740991, as JS's numbers are stored as floating-point in a 52-bit mantissa. This number is only
+around the 78th number in the Fibonacci sequence. Any numbers higher than that will lose precision and thus cannot be correctly
+computed whether the number is one of the first 1000th Fibonacci numbers. To solve this, we have to use Javascript BigInt
+type instead. The BigInt type can store extremely large integers, with one disadvantage being that BigInt numbers cannot
+be used to perform math operations on the Math class. Therefore to solve this feature, I decided to generate and store the
+first 1000th Fibonacci numbers as BigInt numbers when the program starts, and when user inputs a number, convert that number
+into a BigInt and check against the pre-generated list.
