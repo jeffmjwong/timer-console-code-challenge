@@ -48,16 +48,16 @@ What did you think about this coding test - is there anything you'd suggest in o
 timer intervals and readline interface being the core feature of the application. Just a couple of comments regarding
 the coding test:
 
-1. The test didn't specify what would happen if user enters an input that is undesirable, for example entering letters
-when the program asks for a number. I addressed this by adding validations regarding user inputs, and handle incorrect
-inputs gracefully instead of failing immediately. The program achieves this by repeating the question and giving out
-hints of what inputs the program will accept.
+  i. The test didn't specify what would happen if user enters an input that is undesirable, for example entering letters
+  when the program asks for a number. I addressed this by adding validations regarding user inputs, and handle incorrect
+  inputs gracefully instead of failing immediately. The program achieves this by repeating the question and giving out
+  hints of what inputs the program will accept.
 
-2. The Fibonacci numbers feature is one of the most challenging parts of the test, because the maximum safe normal integer
-that can be used is 9007199254740991, as JS's numbers are stored as floating-point in a 52-bit mantissa. This number is only
-around the 78th number in the Fibonacci sequence. Any numbers higher than that will lose precision and thus cannot be correctly
-computed whether the number is one of the first 1000th Fibonacci numbers. To solve this, we have to use Javascript BigInt
-type instead. The BigInt type can store extremely large integers, with one disadvantage being that BigInt numbers cannot
-be used to perform math operations on the Math class. Therefore to solve this feature, I decided to generate and store the
-first 1000th Fibonacci numbers as BigInt numbers when the program starts, and when user inputs a number, convert that number
-into a BigInt and check against the pre-generated list.
+  ii. The Fibonacci numbers feature is one of the most challenging parts of the test, because the maximum safe normal integer
+  that can be used is 9007199254740991, as JS's numbers are stored as floating-point in a 52-bit mantissa. This number is only
+  around the 78th number in the Fibonacci sequence. Any numbers higher than that will lose precision and thus cannot be correctly
+  computed whether the number is one of the first 1000th Fibonacci numbers. To solve this, we have to use Javascript BigInt
+  type instead. The BigInt type can store extremely large integers, with one disadvantage being that BigInt numbers cannot
+  be used to perform math operations on the Math class. Therefore to solve this feature, I decided to generate and store the
+  first 1000th Fibonacci numbers as BigInt numbers when the program starts, and when user inputs a number, convert that number
+  into a BigInt and check against the pre-generated list.
