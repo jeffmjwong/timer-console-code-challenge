@@ -5,10 +5,11 @@
   "main": "index.ts",
   "scripts": {
     "start": "ts-node src/index",
-    "test": "jest --no-cache --forceExit"
+    "test": "jest --no-cache --forceExit",
+    "build": "webpack --mode production"
   },
   "author": "Jeff Wong",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "ts-node": "8.10.1",
     "typescript": "3.9.3"
