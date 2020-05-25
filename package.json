@@ -2,7 +2,7 @@
   "name": "timer-console-code-challenge",
   "version": "1.0.0",
   "description": "A timer console application as part of coding challenge built with Node and Typescript.",
-  "main": "index.ts",
+  "main": "src/index.ts",
   "scripts": {
     "start": "ts-node src/index",
     "test": "jest --no-cache --forceExit",
