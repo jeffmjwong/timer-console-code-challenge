@@ -1,0 +1,33 @@
+1.
+You have a new requirement to implement for your application: its logic should stay exactly the same but
+it will need to have a different user interface (e.g. if you wrote a web app, a different UI may be a REPL).
+Please describe how you would go about implementing this new UI in your application?
+Would you need to restructure your solution in any way?
+
+
+- For this code test I have built a REPL application, a different UI may be a web application. I would use a well-tested
+framework such as Angular or React to build out the web application with logic specific to web UI such as HTML and CSS.
+The web app can potentially live in the same repo as this application for a simple program such as this code test.
+The REPL and web app will have different entry points though, and Webpack can be set up to create multiple bundles with
+different entry points.
+
+Next, it is best to decouple UI and business logic, and by doing that we will able to reuse business logic
+across different UI implementations. This will remove the need to duplicate logic and reduce cost of code maintenance.
+In this code test I have created a NumberCollections object class to keep track of numbers entered by user. If I am to
+build another UI implementation such as a web app, I would further extract common business logic such as timer
+and fibonacci numbers generator, and use a wrapper class to encapsulate their states and methods. I can then inject these
+core business objects into the REPL and web app through their entry points, allowing them to utilise the shared business
+logic encapsulated in these objects. Another benefit by doing that is that we can then easily write tests for the two
+different UI and just once for the business logic layer.
+
+For more complex application, I would suggest creating different repos for different UI implementations to achieve
+greater separation of concern. An advance technique to share core business logic is to create modules and npm packages
+out of them. These packages can then be included in those UI repos as neeeded.
+
+
+2.
+You now need to make your application "production ready", and deploy it so that it can be used by customers.
+Please describe the steps you'd need to take for this to happen.
+
+3.
+What did you think about this coding test - is there anything you'd suggest in order to improve it?

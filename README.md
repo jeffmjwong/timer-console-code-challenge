@@ -13,6 +13,7 @@ This console application is built with Node and Typescript. It can also be bundl
 3. Minimum requirement is to have Node version 12.16.0 or above. If `nvm` is used to manage Node versions, run `nvm use` and it will use the Node version specified in `.nvmrc` file. To install the specific node version, run `nvm install 12.16.0`.
 4. Run `npm install` to install packages.
 5. Run `npm start` to start the interactive console program. Follow the instructions or enter 'quit' at anytime to terminate the program.
-6. Alternatively, run `npm run build` to bundle all source files to a single executable JS file. To start the program, use command `node ./dist/bundle.js`. The program should operate as normal with additional performance boost.
-7. The single executable JS file will also be useful for situation such as deployment and hosting through a CDN. This file can be assessed at directory `/dist/bundle.js` after running the build command `npm run build`.
+6. Alternatively, run `npm run build` to bundle all source files to a single executable JS file. To start the program, use the command `node ./dist/bundle.js`. The program should operate as normal with additional performance boost.
+7. The single JS file will also be useful for situation such as deployment and hosting through a CDN. This file can be assessed at directory `/dist/bundle.js` after running the build command `npm run build`.
 8. Run `npm test` to run all test suites.
+9. Solutions for part 2 of the coding test can be found in `part2.text`.
