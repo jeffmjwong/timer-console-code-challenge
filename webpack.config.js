@@ -10,14 +10,13 @@ module.exports = {
         exclude: /node_modules/,
         use: "ts-loader",
       },
-    ],
+    ]
   },
   resolve: {
-    extensions: [".ts", ".js"],
+    extensions: [".ts", ".js"]
   },
   output: {
     path: path.resolve(__dirname, "dist"),
-    publicPath: "/dist",
-    filename: "bundle.js",
+    filename: "bundle.js"
   }
 };
