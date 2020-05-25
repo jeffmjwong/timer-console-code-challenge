@@ -20,6 +20,6 @@ export default class NumberCollections {
       .entries(this.collection)           // [ [1, 2], [2, 8], [3, 5], [4, 6] ]
       .sort((a, b) => b[1] - a[1])        // [ [2, 8], [4, 6], [3, 5], [1, 2] ]
       .map(arr => `${arr[0]}:${arr[1]}`)  // [ "2:8", "4:6", "3:5", "1:2" ]
-      .join(", ");
+      .join(", ");                        // "2:8, 4:6, 3:5, 1:2"
   }
 }
